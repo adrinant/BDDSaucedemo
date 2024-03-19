@@ -1,5 +1,6 @@
 package org.example.pageObject;
 
+import org.example.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,13 +8,17 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-public class InventoryPage {
+public class InventoryPage extends BasePage {
 
-    public static WebDriver webDriver;
+//    public static WebDriver webDriver;
+//
+//    public InventoryPage(WebDriver driver){
+//        PageFactory.initElements(driver, this);
+//        webDriver = driver;
+//    }
 
-    public InventoryPage(WebDriver driver){
-        PageFactory.initElements(driver, this);
-        webDriver = driver;
+    public InventoryPage(WebDriver driver) {
+        super(driver);
     }
 
     @FindBy(xpath = "//select[@class='product_sort_container']")
@@ -29,13 +34,14 @@ public class InventoryPage {
     }
 
     public void selectSortProduct(String textSortBy){
-        Select  select = new Select(sortProduct);
-        select.selectByVisibleText(textSortBy);
+        selectByVisibleText(sortProduct, textSortBy);
     }
 
     public void clickAddtoCartItem(String item){
         String button = "//div[text()='"+item+"']/ancestor::div[@class='inventory_item_description']//button[text()='Add to cart']";
-        webDriver.findElement(By.xpath(button)).click();
+        //webDriver.findElement(By.xpath(button)).click();
+        WebElement buttonElement = driver.findElement(By.xpath(button));
+        click(buttonElement);
     }
 
     public void clickShoppingCartIcon() {

@@ -46,6 +46,14 @@ public class CheckoutPage {
     @FindBy(xpath = "//div[@class='summary_subtotal_label']")
     private WebElement summarySubtotal;
 
+    @FindBy(xpath = "//div[@class='cart_list']")
+    private WebElement cartList;
+
+    public void verifyCartPage(){
+        cartList.isDisplayed();
+        checkoutButton.isDisplayed();
+    }
+
     public void clickRemoveFromCart(String itemTitle) {
         String button = "//div[.='" + itemTitle + "']/ancestor::div[1]/div[@class='item_pricebar']/button";
         webDriver.findElement(By.xpath(button)).click();
@@ -125,7 +133,7 @@ public class CheckoutPage {
         return totalString;
     }
 
-    public String getSumarryTotal(){
+    public String getSummaryTotal(){
         return summaryTotal.getText();
     }
 

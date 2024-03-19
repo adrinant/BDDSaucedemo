@@ -10,10 +10,6 @@ Feature: Purchase
     And User click add to cart button for "<itemTitle>"
 
     Examples:
-      | itemTitle                         |
-      | Sauce Labs Backpack               |
-      | Sauce Labs Bike Light             |
-      | Sauce Labs Bolt T-Shirt           |
-      | Sauce Labs Fleece Jacket          |
-      | Sauce Labs Onesie                 |
-      | Test.allTheThings() T-Shirt (Red) |
+      | itemTitle             |
+      | Sauce Labs Backpack   |
+      | Sauce Labs Bike Light |

@@ -1,6 +1,7 @@
 package step_definitions;
 
 import hooks.Hooks;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -20,7 +21,7 @@ public class LoginSteps {
     }
 
     @When("User input {string} as a userName {string} as a password")
-    public void credential(String userName, String password){
+    public void inputCredential(String userName, String password){
         loginPage.inputFieldUserName(userName);
         loginPage.inputFieldPassword(password);
         loginPage.clickLoginButton();
@@ -35,4 +36,5 @@ public class LoginSteps {
     public void userSeeErrorOnLoginPage(String errorText) {
         Assert.assertEquals(errorText, loginPage.getErrorMessage());
     }
+
 }

@@ -6,12 +6,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage {
-    public static WebDriver webDriver;
+public class LoginPage extends BasePage {
 
-    public LoginPage(WebDriver driver){
-        PageFactory.initElements(driver, this);
-        webDriver = driver;
+//    public static WebDriver webDriver;
+//
+//    public LoginPage(WebDriver driver){
+//        PageFactory.initElements(driver, this);
+//        webDriver = driver;
+//    }
+
+    public LoginPage(WebDriver driver) {
+        super(driver);
     }
 
     //inisiasi locator
@@ -33,7 +38,8 @@ public class LoginPage {
     }
 
     public void clickLoginButton(){
-        loginButton.click();
+        isDisplayed(loginButton);
+        click(loginButton);
     }
 
 

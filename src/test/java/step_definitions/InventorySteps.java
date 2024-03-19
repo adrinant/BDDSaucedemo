@@ -17,8 +17,6 @@ public class InventorySteps {
     public void sortProduct(String textSortBy){
         inventoryPage.selectSortProduct(textSortBy);
     }
-
-
     @And("User click add to cart button for {string}")
     public void userClickAddToCartButtonFor(String itemTitle) {
         inventoryPage.clickAddtoCartItem(itemTitle);
